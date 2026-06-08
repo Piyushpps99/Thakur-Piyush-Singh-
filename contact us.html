@@ -1,0 +1,308 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Thakur Piyush Singh</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        /* Universal Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary-color: #e61d5f; /* Accent Pink from screenshot */
+            --text-dark: #333;
+            --border-color: #e0e0e0;
+            --bg-light: #fafafa;
+        }
+
+        /* Header and Nav Links */
+        .top-bar {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 10%;
+            display: flex;
+            gap: 25px;
+            font-size: 13px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 10%;
+            border-bottom: 1px solid var(--border-color);
+            background: #fff;
+        }
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        /* Main Container setup */
+        .contact-section {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+        .contact-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+        .contact-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+        .contact-header h2 span {
+            color: var(--primary-color);
+        }
+        .contact-header .subtitle {
+            font-family: 'Georgia', serif;
+            font-style: italic;
+            color: #555;
+            margin-top: 12px;
+            font-size: 18px;
+        }
+
+        /* Main Combined Layout Grid Box */
+        .contact-container {
+            display: flex;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        /* Left Column: Form Design */
+        .form-container {
+            flex: 1.6;
+            padding: 40px;
+            border-right: 1px solid var(--border-color);
+        }
+        .form-container h3, .info-container h3 {
+            font-size: 22px;
+            margin-bottom: 25px;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--primary-color);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+        .form-row {
+            display: flex;
+            gap: 20px;
+        }
+        .form-group {
+            flex: 1;
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #555;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            font-size: 14px;
+            outline: none;
+            background-color: #fff;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: var(--primary-color);
+        }
+        .btn-send {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 12px 45px;
+            font-size: 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+        .btn-send:hover {
+            background-color: #cb1350;
+        }
+
+        /* Right Column: Contact Info Card Layout */
+        .info-container {
+            flex: 1;
+            padding: 40px;
+            background-color: var(--bg-light);
+        }
+        .info-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .info-icon {
+            background-color: var(--primary-color);
+            color: white;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .info-text h4 {
+            color: var(--primary-color);
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+        .info-text p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        /* PHP Status Alert Banners */
+        .status-msg {
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-align: center;
+        }
+        .status-msg.success {
+            background-color: #e6f4ea;
+            color: #137333;
+            border: 1px solid #c2e7cc;
+        }
+        .status-msg.error {
+            background-color: #fce8e6;
+            color: #c5221f;
+            border: 1px solid #fad2cf;
+        }
+
+        /* Responsive Breakpoints for Mobile Viewports */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+            .form-container {
+                border-right: none;
+                border-bottom: 1px solid var(--border-color);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="top-bar">
+            <span><i class="fas fa-phone"></i> +91 9455718092</span>
+            <span><i class="fas fa-envelope"></i> Thakur Piyush Singh</span>
+        </div>
+        <nav class="navbar">
+            <div class="logo" style="font-weight: bold; font-size: 24px; color: #e61d5f;"> Thakur Piyush Singh</div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Our Team</a></li>
+                <li><a href="#">Project</a></li>
+                <li><a href="#" class="active">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="contact-section">
+        
+        <div class="contact-header">
+            <h2>Contact <span>With Us</span></h2>
+            <p class="subtitle">You may contact us by contact number or fill this form any time your need professional support or have any question.</p>
+        </div>
+
+        <?php echo $message_status; ?>
+
+        <div class="contact-container">
+            <div class="form-container">
+                <h3>Send Your Message</h3>
+                
+                <form action="" method="POST">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" placeholder="Enter your name *" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Your contact no</label>
+                            <input type="text" name="phone" placeholder="Enter your contact number *">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Your Email</label>
+                        <input type="email" name="email" placeholder="Enter your Email *" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Your Message</label>
+                        <textarea name="message" rows="6" placeholder="Type your message here..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-send">Send</button>
+                </form>
+            </div>
+
+            <div class="info-container">
+                <h3>Contact Info</h3>
+                
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-map-marker-alt"></i></div>
+                    <div class="info-text">
+                        <h4> Address</h4>
+                        <p>Jhunshi Trivenipuram<br>Prayagraj... 211003</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-phone-alt"></i></div>
+                    <div class="info-text">
+                        <h4>Call Us</h4>
+                        <p>+91 9455718092</p>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <div class="info-icon"><i class="fas fa-envelope"></i></div>
+                    <div class="info-text">
+                        <h4>Mail Us</h4>
+                        <p>thakurpiyushps99@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
